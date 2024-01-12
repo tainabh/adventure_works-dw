@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: sap
+    description: Fonte de dados da Adventure Works
+    schema: sap_adw
+    tables:
+    - name: salesorderdetail
+      columns:
+        - name: rowguid
+          tests: 
+            - unique
+            - not_null        
+    - name: product
+      columns: 
+        - name: rowguid
+          tests:
+            - unique
+            - not_null
+            
