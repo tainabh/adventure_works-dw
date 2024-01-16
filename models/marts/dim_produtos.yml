@@ -1,0 +1,83 @@
+version: 2
+
+models: 
+  - name: dim_produtos
+    description: Dimensao de produtos da Adventure Works. Uma linha por produto com informacoes de detalhes de pedidos de vendas.
+    columns: 
+      - name: sk_produto
+        description: Chave surrogate da dimensao de produtos.
+        tests: 
+          - not_null
+          - unique          
+        
+      - name: id_produto
+        description: Chave primaria da dimensao de produtos.
+        tests: 
+          - not_null
+          - unique   
+        
+      - name: nome_produto
+        description: Nome do produto.
+        
+      - name: codigo_produto
+        description: Código do produto.
+        
+      - name: quantidade_vendida
+        description: Quantidade total vendida por produto.
+        
+      - name: valor_total_vendido
+        description: Valor total vendido por produto.
+        
+      - name: desconto_total
+        description: Desconto total gerado por produto.
+        
+      - name: produto_deve_ser_fabricado
+        description: Indicador sobre a necessidade de fabricacao do produto para aumento do nível de estoque.
+        
+      - name: produto_acabado
+        description: Indicador sobre produtos acabados.
+        
+      - name: cor_produto
+        description: Cor do produto.
+        
+      - name: estoque_minimo_produto
+        description: Quantidade minima para o nivel de estoque
+        
+      - name: ponto_reposicao_produto
+        description: Indicador nivel de reposicao de produto no estoque.
+        
+      - name: custo_padrao_produto
+        description: Custo padrao de cada produto.
+        
+      - name: preco_tabelado_produto
+        description: Preco unitario do produto tabelado.
+        
+      - name: tamanho_produto
+        description: Tamanho do produto.
+        
+      - name: codigo_tamanho_produto
+        description: Codigo do tamanho do produto.
+        
+      - name: unidade_medida_peso_produto
+        description: Unidade de medida do peso do produto.
+        
+      - name: peso_produto
+        description: Peso de cada produto.
+        
+      - name: dias_fabricacao_produto
+        description: Quantidade de dias destinados para a fabricacao do produto.
+        
+      - name: linha_produto
+        description: Linha do produto.
+        
+      - name: classe_produto
+        description: Classe do produto.
+        
+      - name: estilo_produto
+        description: Estilo do produto.
+        
+      - name: inicio_vendas_produto
+        description: Data e horario do inicio das vendas do produto.
+        
+      - name: termino_vendas_produto
+        description: Data e horario do termino das vendas do produto.
