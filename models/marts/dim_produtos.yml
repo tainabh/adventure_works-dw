@@ -8,14 +8,14 @@ models:
         description: Chave surrogate da dimensao de produtos.
         tests: 
           - not_null
-          - unique          
-        
+          - unique    
+
       - name: id_produto
         description: Chave primaria da dimensao de produtos.
         tests: 
           - not_null
-          - unique   
-        
+          - unique 
+                           
       - name: nome_produto
         description: Nome do produto.
         

@@ -1,0 +1,77 @@
+version: 2
+
+models: 
+  - name: dim_vendedor
+    description: Dimensao de vendedor da Adventure Works. Uma linha por vendedor com informacoes de funcionarios e pessoa.
+    columns: 
+
+      - name: sk_vendedor
+        description: Chave primaria da dimensao de vendedor.
+        tests: 
+          - not_null
+          - unique
+
+      - name: sk_funcionario
+        description: Chave estrangeira da tabela de funcionario.
+        tests: 
+          - not_null
+          - unique
+
+      - name: sk_pessoa
+        description: Chave estrangeira da tabela de pessoa.
+        tests: 
+          - not_null
+          - unique
+        
+      - name: id_empresa
+        description: Chave das tabelas vendedor, pessoa e funcionarios.
+                      
+      - name: id_territorio_vendedor
+        description: Chave da tabela de vendedor.
+                   
+      - name: id_codigo_nacional
+        description: Chave da tabela de funcionario.
+                            
+      - name: nome
+        description: Nome do vendedor.
+                      
+      - name: cargo_funcionario
+        description: Descricao do cargo do vendedor na hierarquia da empresa. 
+                      
+      - name: dt_nascimento_funcionario
+        description: Data de nascimento do vendedor.
+                                  
+      - name: genero_funcionario
+        description: Sigla que descreve gênero do vendedor.
+                      
+      - name: data_contratacao_funcionario
+        description: Data de contratacao do vendedor.
+                      
+      - name: eh_assalariado
+        description: Descricao de se o vendedor eh assalariado ou não é.
+                      
+      - name: horas_descanso_funcionario
+        description: Quantidade de horas que o vendedor possui de folgas.
+                      
+      - name: horas_licenca_medica_funcionario
+        description: Quantidade de horas que o vendedor tem registradas como licenca medica.
+                    
+      - name: funcionario_ativo
+        description: Descricao de se o funcionario esta ativo (em atividade) ou não na empresa.
+                    
+      - name: meta_vendas_vendedor
+        description: Meta a ser batida pelo vendedor.
+                      
+      - name: bonus_vendedor
+        description: Bonus recebido pelo vendedor.
+                      
+      - name: porcentagem_comissao_vendedor
+        description: Porcentagem de comissao recebida pelo vendedor.
+                     
+      - name: vendas_acumulada_vendedor
+        description: Valor acumulado de vendas do vendedor.
+                      
+      - name: vendas_ultimo_ano_vendedor
+        description: Valor acumulado de vendas do vendedor no ultimo ano.
+        
+              
