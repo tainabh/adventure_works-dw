@@ -17,4 +17,24 @@ sources:
           tests:
             - unique
             - not_null
+    
+    - name: salesperson
+      columns: 
+        - name: rowguid
+          tests:
+            - unique
+            - not_null
+            
+    - name: employee
+      columns: 
+        - name: rowguid
+          tests:
+            - unique
+            - not_null
+    - name: person
+      columns: 
+        - name: rowguid
+          tests:
+            - unique
+            - not_null
             

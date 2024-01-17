@@ -41,9 +41,6 @@ with
     , joined_tabelas as (
         select
             stg_produto.sk_produto
-            --, stg_detalhes_pedidos_vendas.id_pedido_vendas
-            --, stg_detalhes_pedidos_vendas.id_detalhes_pedido            
-            --, stg_detalhes_pedidos_vendas.id_oferta_especial
             , stg_produto.id_produto
             , stg_produto.nome_produto
             , stg_produto.codigo_produto
