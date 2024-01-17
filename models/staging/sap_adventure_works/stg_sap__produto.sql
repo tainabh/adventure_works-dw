@@ -22,7 +22,7 @@ with
             , cast (style as string) as estilo_produto           
             , cast (sellstartdate as string) as inicio_vendas_produto
             , cast (sellenddate as string) as termino_vendas_produto
-            --, discontinueddate -  nao aplicavel as regras de negocio            
+            --, discontinueddate e-  nao aplicavel as regras d negocio            
             --, modifieddate - nao aplicavel as regras de negocio
             --, productsubcategoryid - nao aplicavel as regras de negocio
             --, productmodelid - nao aplicavel as regras de negocio
