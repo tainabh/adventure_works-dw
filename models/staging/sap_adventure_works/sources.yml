@@ -31,10 +31,41 @@ sources:
           tests:
             - unique
             - not_null
+
     - name: person
       columns: 
         - name: rowguid
           tests:
             - unique
             - not_null
+
+    - name: customer
+      columns: 
+        - name: customerid 
+          tests:
+            - unique
+            - not_null
+      
+    
+    - name: stateprovince
+      columns: 
+        - name: stateprovinceid
+          tests:
+            - unique
+            - not_null
+      
+    - name: address
+      columns: 
+        - name: addressid
+          tests:
+            - unique
+            - not_null
+      
+    - name: countryregion
+      columns: 
+        - name: countryregioncode
+          tests:
+            - unique
+            - not_null
+      
             
