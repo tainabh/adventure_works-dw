@@ -1,0 +1,26 @@
+version: 2
+
+models: 
+  - name: dim_clientes
+    description: Dimensao de clientes da Adventure Works. Uma linha por cliente com informacoes de pessoa.
+    columns: 
+      - name: sk_cliente
+        description: Chave surrogate da dimensao de clientes.
+        tests: 
+          - not_null
+          - unique  
+
+      - name: id_cliente
+        description: Chave primaria da dimensao de cliente.
+        tests: 
+          - not_null
+          - unique 
+
+      - name: id_pessoa
+        description: Chave estrangeira da tabela de pessoa.
+
+      - name: id_empresa
+        description: Chave estrangeira da tabela de pessoa. Código identificador de empresa.
+
+      - name: name
+        description: Nome do cliente.

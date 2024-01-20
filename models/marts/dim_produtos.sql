@@ -38,7 +38,7 @@ with
         from {{ ref('stg_sap__produto') }}
     )
 
-    , joined_tabelas as (
+        , joined_tabelas as (
         select
             stg_produto.sk_produto
             , stg_produto.id_produto

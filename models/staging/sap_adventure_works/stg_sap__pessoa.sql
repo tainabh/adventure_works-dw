@@ -11,8 +11,7 @@ with
             --, namestyle - nao aplicavel as regras de negocio 
             --, suffix - nao aplicavel as regras de negocio 
             --, emailpromotion - nao aplicavel as regras de negocio 
-            
-        from {{ source('sap', 'person') }}
+            from {{ source('sap', 'person') }}
     )
 
 select *
