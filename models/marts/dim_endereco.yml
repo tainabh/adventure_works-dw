@@ -1,0 +1,35 @@
+version: 2
+
+models: 
+  - name: dim_endereco
+    description: Dimensao de endereco de pessoas da Adventure Works. Uma linha por endereco com informacoes de pais e regiao.
+    columns: 
+      - name: id_endereco
+        description: Chave primaria da dimensao de endereco.
+        tests: 
+          - not_null
+          - unique
+
+      - name: id_pais
+        description: Chave estrangeira da tabela de pais.
+
+      - name: id_territorio
+        description: Chave estrangeira da tabela de territorio, contida na tabela pais.
+
+      - name: local_endereco
+        description: Descricao do endereco.
+
+      - name: nome_cidade
+        description: Descricao do nome da cidade.
+
+      - name: nome_pais
+        description: Descricao do nome do pais.
+
+      - name: codigo_pais
+        description: Codigo do pais representado por sigla.
+
+      - name: codigo_regiao_pais
+        description: Codigo da regiao do pais representado por sigla.
+
+                  
+
