@@ -2,11 +2,11 @@ with
     stg_detalhes_pedidos_vendas as (
         select 
             sk_pedido_vendas
-            , id_pedido_vendas
+            , id_pedido_vendas 
             , id_detalhes_pedido
             , id_produto
             , id_oferta_especial
-            , quantidade_solicitada
+            , quantidade_solicitada 
             , preco_unitario_produto
             , desconto_produto
         from {{ ref('stg_sap__detalhes_pedido_vendas') }}
@@ -40,8 +40,9 @@ with
 
         , joined_tabelas as (
         select
-            stg_produto.sk_produto
-            , stg_produto.id_produto
+            --stg_produto.sk_produto
+            stg_produto.id_produto
+            , stg_detalhes_pedidos_vendas.id_pedido_vendas 
             , stg_produto.nome_produto
             , stg_produto.codigo_produto
             , stg_detalhes_pedidos_vendas.quantidade_solicitada
@@ -69,62 +70,17 @@ with
             stg_produto.id_produto = stg_detalhes_pedidos_vendas.id_produto
     )
 
-    , produtos_unicos as ( -- cte criada para ter linhas unicas, sendo uma linha por produto
-        select 
-            sk_produto
-            , id_produto
-            , nome_produto
-            , codigo_produto
-            , sum(quantidade_solicitada) as quantidade_vendida -- soma da quantidade vendida por produto
-            , sum (preco_unitario_produto) as valor_total_vendido -- soma do valor total vendido por produto
-            , sum (desconto_produto) as desconto_total -- soma do desconto total gerado por produto
-            , produto_deve_ser_fabricado
-            , produto_acabado
-            , cor_produto
-            , estoque_minimo_produto
-            , ponto_reposicao_produto
-            , custo_padrao_produto
-            , preco_tabelado_produto
-            , tamanho_produto
-            , codigo_tamanho_produto
-            , unidade_medida_peso_produto
-            , peso_produto
-            , dias_fabricacao_produto
-            , linha_produto
-            , classe_produto
-            , estilo_produto
-            , inicio_vendas_produto
-            , termino_vendas_produto
-        from joined_tabelas
-        group by
-            sk_produto
-            , id_produto
-            , nome_produto
-            , codigo_produto
-            --, sum(quantidade_solicitada) as quantidade_vendida -- soma da quantidade vendida por produto
-            --, sum (preco_unitario_produto) as valor_total_vendido -- soma do valor total vendido por produto
-            --, sum (desconto_produto) as desconto_total -- soma do desconto total gerado por produto
-            , produto_deve_ser_fabricado
-            , produto_acabado
-            , cor_produto
-            , estoque_minimo_produto
-            , ponto_reposicao_produto
-            , custo_padrao_produto
-            , preco_tabelado_produto
-            , tamanho_produto
-            , codigo_tamanho_produto
-            , unidade_medida_peso_produto
-            , peso_produto
-            , dias_fabricacao_produto
-            , linha_produto
-            , classe_produto
-            , estilo_produto
-            , inicio_vendas_produto
-            , termino_vendas_produto
-    )
+       , criar_chave as (
+            select
+                cast (id_produto as string) || '-' || coalesce (cast (id_pedido_vendas as string), 'sem pedido') || '-' || coalesce (cast (quantidade_solicitada as string), '0') || '-' || coalesce (cast (preco_unitario_produto as string), '0') as sk_dim_produtos
+                -- usado coalesce para tratar valores nulos e exibir um valor padrão
+                , *             
+            from joined_tabelas
+       )
 
 select *
-from produtos_unicos
+from criar_chave
+order by id_pedido_vendas desc
 
 
 

@@ -96,6 +96,9 @@ sources:
             - unique
             - not_null
 
+    - name: salesorderheadersalesreason
+      
+
     
       
       

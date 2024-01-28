@@ -1,0 +1,11 @@
+version: 2
+
+models: 
+  - name: int_vendas__motivo_cartao
+    description: Modelo intermediario que faz a relacao 1-N de pedidos para tipo de cartao e motivo de venda.
+    columns: 
+      - name: sk_vendas_motivo_cartao
+        description: Chave surrogate da tabela vendas motivo cartao.
+        tests: 
+          - not_null
+          - unique  

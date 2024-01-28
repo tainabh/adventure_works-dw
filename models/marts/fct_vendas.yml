@@ -1,0 +1,11 @@
+version: 2
+
+models: 
+  - name: fct_vendas
+    description: Tabela com fatos de vendas cada linha descreve informacoes de um produto vendido.
+    columns: 
+      - name: sk_fct_vendas
+        description: Chave surrogate da tabela fatos vendas.
+        tests: 
+          - not_null
+          - unique 
