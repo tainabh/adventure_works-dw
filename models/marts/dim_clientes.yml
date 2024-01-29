@@ -20,7 +20,7 @@ models:
         description: Chave estrangeira da tabela de pessoa.
 
       - name: id_empresa
-        description: Chave estrangeira da tabela de pessoa. Código identificador de empresa.
+        description: Chave estrangeira da tabela de pessoa. Código identificador de empresa vendedora.
 
       - name: name
         description: Nome do cliente.

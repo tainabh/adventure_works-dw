@@ -2,10 +2,99 @@ version: 2
 
 models: 
   - name: int_vendas__motivo_cartao
-    description: Modelo intermediario que faz a relacao 1-N de pedidos para tipo de cartao e motivo de venda.
+    description: Modelo intermediario que faz a relacao 1-N de pedidos para tipo de cartao e motivo de venda. O numero de pedidos se repete pois para cada linha existe um motivo de venda diferente, e um pedido pode obter um ou mais motivos de venda.
     columns: 
       - name: sk_vendas_motivo_cartao
         description: Chave surrogate da tabela vendas motivo cartao.
         tests: 
           - not_null
           - unique  
+
+      - name: id_pedido_venda
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_cliente
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_vendedor
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_territorio
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_endereco_faturamento
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_endereco_entrega
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_forma_entrega
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_cartao_credito
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_taxa_cambio
+        description: Chave da tabela de cabecalho pedido venda.
+
+      - name: id_motivo_venda
+        description: Chave da tabela de motivo venda.
+
+      - name: motivo_venda
+        description: Descricao do motivo venda.
+
+      - name: tipo_motivo_venda
+        description: Descricao do tipo de motivo venda.
+
+      - name: codigo_pedido
+        description: Descricao do codigo do pedido de venda.
+
+      - name: numero_conta
+        description: Descricao do numero da conta do usuario.
+
+      - name: numero_revisao
+        description: Descricao do numero de revisao do pedido.
+
+      - name: data_pedido
+        description: Data de realizacao do pedido.
+
+      - name: prazo_entrega_pedido
+        description: Prazo para efetivacao da entrega do pedido.
+
+      - name: data_envio
+        description: Data de envio do pedido.
+
+      - name: status_pedido
+        description: Codigo de status do pedido.
+
+      - name: pedido_foi_online
+        description: Descricao de se o pedido foi realizado de forma online ou nao.
+
+      - name: codigo_aprovacao_cartao_credito
+        description: Codigo de aprovacao do cartao de credito na compra do pedido.
+
+      - name: tipo_cartao_credito
+        description: Tipo de cartao de credito utilizado na compra do pedido.
+
+      - name: subtotal_pedido
+        description: Valor do subtotal do pedido.
+
+      - name: taxa_pedido
+        description: Taxa do pedido.
+
+      - name: valor_frete
+        description: Valor do frete do pedido.
+
+      - name: total_a_receber_pedido
+        description: Valor total a receber do pedido.
+
+      - name: rn
+        description: Numero de linha atribuido para cada pedido de acordo com o motivo de venda. Se o pedido possui somente um motivo de venda, rn = 1; se o pedido possui dois ou mais motivos de venda, rn = n + 1... coluna criada para deduplicacao de linhas na tabela de fatos vendas. 
+
+      
+
+
+
+
+
+

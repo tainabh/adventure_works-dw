@@ -6,7 +6,7 @@ models:
     columns: 
 
       - name: sk_vendedor
-        description: Chave primaria da dimensao de vendedor.
+        description: Chave surrogate da dimensao de vendedor.
         tests: 
           - not_null
           - unique
@@ -24,13 +24,13 @@ models:
           - unique
         
       - name: id_empresa
-        description: Chave das tabelas vendedor, pessoa e funcionarios.
+        description: Chave estrarangeira das tabelas vendedor, pessoa e funcionarios.
                       
       - name: id_territorio_vendedor
-        description: Chave da tabela de vendedor.
+        description: Chave estrangeira da tabela de vendedor.
                    
       - name: id_codigo_nacional
-        description: Chave da tabela de funcionario.
+        description: Chave estrangeirra da tabela de funcionarios.
                             
       - name: nome
         description: Nome do vendedor.

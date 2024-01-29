@@ -124,6 +124,7 @@ with
             int_vendas.id_pedido_venda = produtos.id_pedido_vendas
     )
     
+  
     , transformacoes as (
         select 
             *
@@ -143,9 +144,93 @@ with
             , (preco_unitario_produto * quantidade_solicitada * (1 - desconto_produto)) / count (id_pedido_venda) over (partition by id_pedido_venda) as ticket_medio
 
         from joined_tabelas
+        where rn = 1
     )
 
-
+    --, self_join_tabelas as (
+    --    select 
+    --        joined_tabelas.sk_vendas_motivo_cartao
+    --        , joined_tabelas.sk_dim_produtos
+    --        , joined_tabelas.id_pedido_venda
+    --        , joined_tabelas.id_produto
+    --        , joined_tabelas.id_pessoa
+    --        , joined_tabelas.id_cliente
+    --        , joined_tabelas.id_vendedor
+    --        , joined_tabelas.id_territorio_vendedor
+    --        , joined_tabelas.id_territorio
+    --        , joined_tabelas.id_pais
+    --        , joined_tabelas.id_codigo_nacional
+    --        , joined_tabelas.id_endereco_entrega
+    --        , joined_tabelas.id_forma_entrega
+    --        , joined_tabelas.id_cartao_credito
+    --        , joined_tabelas.id_taxa_cambio
+    --        , joined_tabelas.id_motivo_venda
+    --        , joined_tabelas.data_pedido
+    --        , joined_tabelas.prazo_entrega_pedido
+    --        , joined_tabelas.data_envio
+    --        , joined_tabelas.dt_nascimento_funcionario
+    --        , joined_tabelas.data_contratacao_funcionario
+    --        , joined_tabelas.inicio_vendas_produto
+    --        , joined_tabelas.termino_vendas_produto
+    --        , joined_tabelas.quantidade_solicitada
+    --        , joined_tabelas.preco_unitario_produto
+    --        , joined_tabelas.desconto_produto
+    --        , joined_tabelas.custo_padrao_produto
+    --        , joined_tabelas.preco_tabelado_produto
+    --        , joined_tabelas.meta_vendas_vendedor
+    --        , joined_tabelas.porcentagem_comissao_vendedor
+    --        , joined_tabelas.nome_cliente
+    --        , joined_tabelas.local_endereco
+    --        , joined_tabelas.nome_cidade
+    --        , joined_tabelas.nome_pais
+    --        , joined_tabelas.codigo_pais
+    --        , joined_tabelas.nome_produto
+    --        , joined_tabelas.codigo_produto
+    --        , joined_tabelas.cor_produto
+    --        , joined_tabelas.estoque_minimo_produto
+    --        , joined_tabelas.ponto_reposicao_produto
+    --        , joined_tabelas.tamanho_produto
+    --        , joined_tabelas.codigo_tamanho_produto
+    --        , joined_tabelas.unidade_medida_peso_produto
+    --        , joined_tabelas.peso_produto
+    --        , joined_tabelas.dias_fabricacao_produto
+    --        , joined_tabelas.linha_produto
+    --        , joined_tabelas.classe_produto
+    --        , joined_tabelas.estilo_produto
+    --        , joined_tabelas.nome_vendedor
+    --        , joined_tabelas.horas_descanso_funcionario
+    --        , joined_tabelas.cargo_funcionario
+    --        , joined_tabelas.genero_funcionario
+    --        , joined_tabelas.eh_assalariado
+    --        , joined_tabelas.horas_licenca_medica_funcionario
+    --        , joined_tabelas.funcionario_ativo
+    --        , joined_tabelas.motivo_venda
+    --        , joined_tabelas.tipo_motivo_venda
+    --        , joined_tabelas.codigo_pedido
+    --        , joined_tabelas.numero_conta
+    --        , joined_tabelas.numero_revisao
+    --        , joined_tabelas.status_pedido
+    --        , joined_tabelas.pedido_foi_online
+    --        , joined_tabelas.codigo_aprovacao_cartao_credito
+    --        , joined_tabelas.tipo_cartao_credito
+    --        , joined_tabelas.rn
+    --        , transformacoes.frete_ponderado
+    --        , transformacoes.taxa_ponderada
+    --        , transformacoes.subtotal_ponderado
+    --        , transformacoes.total_ponderado
+    --        , transformacoes.total_vendas_vendedor
+    --        , transformacoes.total_vendas_ultimo_ano_vendedor
+    --        , transformacoes.bonus_para_vendedor
+    --        , transformacoes.ticket_medio
+    --    from joined_tabelas 
+    --    left join transformacoes on
+    --        joined_tabelas.sk_vendas_motivo_cartao = transformacoes.sk_vendas_motivo_cartao
+    --)
+--
+    --select *
+    --from self_join_tabelas
+    --order by id_pedido_venda desc
+--
     , select_final as (
         select
             -- CHAVES --
@@ -241,13 +326,12 @@ with
             , tipo_cartao_credito
             , rn
             
-
-
         from transformacoes
-        where rn = 1
+        
     )
 
 select *
 from select_final
+order by id_pedido_venda desc
 
 

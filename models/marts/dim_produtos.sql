@@ -80,7 +80,6 @@ with
 
 select *
 from criar_chave
-order by id_pedido_vendas desc
 
 
 
