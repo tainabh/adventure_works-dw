@@ -91,6 +91,9 @@ models:
       - name: rn
         description: Numero de linha atribuido para cada pedido de acordo com o motivo de venda. Se o pedido possui somente um motivo de venda, rn = 1; se o pedido possui dois ou mais motivos de venda, rn = n + 1... coluna criada para deduplicacao de linhas na tabela de fatos vendas. 
 
+      - name: motivos_venda
+        description: Concatenação dos motivos de venda de um mesmo pedido em cada linha de produto. 
+
       
 
 

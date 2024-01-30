@@ -122,8 +122,70 @@ with
         from joined_tabelas
     )
 
-
+    , select_final as (
+        select 
+            sk_vendas_motivo_cartao
+            , id_pedido_venda 
+            , id_cliente
+            , id_vendedor
+            , id_territorio
+            , id_endereco_faturamento
+            , id_endereco_entrega
+            , id_forma_entrega
+            , id_cartao_credito
+            , id_taxa_cambio
+            , id_motivo_venda
+            , motivo_venda
+            , tipo_motivo_venda
+            , codigo_pedido                   
+            , numero_conta
+            , numero_revisao
+            , data_pedido
+            , prazo_entrega_pedido
+            , data_envio
+            , status_pedido
+            , pedido_foi_online
+            , codigo_aprovacao_cartao_credito
+            , tipo_cartao_credito
+            , subtotal_pedido
+            , taxa_pedido
+            , valor_frete
+            , total_a_receber_pedido
+            , rn
+            , string_agg (motivo_venda, ', ') over (partition by id_pedido_venda) as motivos_venda
+        from criar_chave
+        group by 
+            sk_vendas_motivo_cartao
+            , id_pedido_venda 
+            , id_cliente
+            , id_vendedor
+            , id_territorio
+            , id_endereco_faturamento
+            , id_endereco_entrega
+            , id_forma_entrega
+            , id_cartao_credito
+            , id_taxa_cambio
+            , id_motivo_venda
+            , motivo_venda
+            , tipo_motivo_venda
+            , codigo_pedido                   
+            , numero_conta
+            , numero_revisao
+            , data_pedido
+            , prazo_entrega_pedido
+            , data_envio
+            , status_pedido
+            , pedido_foi_online
+            , codigo_aprovacao_cartao_credito
+            , tipo_cartao_credito
+            , subtotal_pedido
+            , taxa_pedido
+            , valor_frete
+            , total_a_receber_pedido
+            , rn
+            )
 
 select *
-from criar_chave
-order by id_pedido_venda desc
+from select_final
+where rn = 1
+

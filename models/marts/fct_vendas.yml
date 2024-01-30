@@ -55,9 +55,6 @@ models:
       - name: id_taxa_cambio
         description: Chave da tabela intermediaria de vendas por motivo e por cartao.
 
-      - name: id_motivo_venda
-        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
-
       - name: data_pedido
         description: Data de realizacao do pedido.
 
@@ -205,11 +202,8 @@ models:
       - name: funcionario_ativo
         description: Descricao de se o funcionario esta ativo (em atividade) ou não na empresa.
 
-      - name: motivo_venda
-        description: Descricao do motivo venda.
-
-      - name: tipo_motivo_venda
-        description: Descricao do tipo de motivo venda.
+      - name: motivos_venda
+        description: Concatenação dos motivos de venda de um mesmo pedido em cada linha de produto. 
 
       - name: codigo_pedido
         description: Descricao do codigo do pedido de venda.
@@ -231,6 +225,3 @@ models:
 
       - name: tipo_cartao_credito
         description: Tipo de cartao de credito utilizado na compra do pedido.
-
-      - name: rn
-        description: Numero de linha atribuido para cada pedido de acordo com o motivo de venda. Se o pedido possui somente um motivo de venda, rn = 1; se o pedido possui dois ou mais motivos de venda, rn = n + 1... coluna criada para deduplicacao de linhas na tabela de fatos vendas. 
