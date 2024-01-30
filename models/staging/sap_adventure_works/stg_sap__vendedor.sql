@@ -10,7 +10,6 @@ with
             , cast (salesytd as numeric) as vendas_acumulada_vendedor
             , cast (saleslastyear as numeric) as vendas_ultimo_ano_vendedor
             --, modifieddate - nao aplicavel as regras de negocio         
-            
         from {{ source('sap', 'salesperson') }}
     )
 

@@ -4,17 +4,17 @@ models:
   - name: dim_produtos
     description: Dimensao de produtos da Adventure Works. Uma linha por produto com informacoes de detalhes de pedidos de vendas.
     columns: 
-      - name: sk_produto
+      - name: sk_dim_produtos
         description: Chave surrogate da dimensao de produtos.
         tests: 
           - not_null
           - unique    
 
       - name: id_produto
-        description: Chave primaria da dimensao de produtos.
-        tests: 
-          - not_null
-          - unique 
+        description: Chave primaria da dimensao de produtos. Os ids de produto se repetem na tabela, pois o mesmo produto pode ter sido adquirido em mais do que um pedido.
+        
+      - name: id_pedido_vendas
+        description: Id do pedido que contem o produto.
                            
       - name: nome_produto
         description: Nome do produto.
@@ -22,14 +22,14 @@ models:
       - name: codigo_produto
         description: Código do produto.
         
-      - name: quantidade_vendida
-        description: Quantidade total vendida por produto.
+      - name: quantidade_solicitada
+        description: Quantidade vendida por produto.
         
-      - name: valor_total_vendido
-        description: Valor total vendido por produto.
+      - name: preco_unitario_produto 
+        description: Preco do produto. Um mesmo produto obtem valores unitarios distintos, dependendo do pedido.
         
-      - name: desconto_total
-        description: Desconto total gerado por produto.
+      - name: desconto_produto
+        description: Desconto do produto. Um mesmo produto obtem valores de desconto destintos, dependendo do pedido.
         
       - name: produto_deve_ser_fabricado
         description: Indicador sobre a necessidade de fabricacao do produto para aumento do nível de estoque.

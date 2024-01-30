@@ -74,6 +74,33 @@ sources:
           tests:
             - unique
             - not_null
+
+    - name: salesreason
+      columns: 
+        - name: salesreasonid
+          tests:
+            - unique
+            - not_null
+
+    - name: salesorderheader
+      columns: 
+        - name: salesorderid
+          tests:
+            - unique
+            - not_null
+
+    - name: creditcard
+      columns: 
+        - name: creditcardid
+          tests:
+            - unique
+            - not_null
+
+    - name: salesorderheadersalesreason
+      
+
+    
+      
       
       
             

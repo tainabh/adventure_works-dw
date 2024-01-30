@@ -1,0 +1,227 @@
+version: 2
+
+models: 
+  - name: fct_vendas
+    description: Tabela com fatos de vendas cada linha descreve informacoes de cada um dos produtos vendidos do mesmo pedido.
+    columns: 
+      - name: sk_fct_vendas
+        description: Chave surrogate da tabela fatos vendas.
+        tests: 
+          - not_null
+          - unique 
+
+      - name: sk_vendas_motivo_cartao
+        description: Chave secundaria da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: sk_dim_produtos
+        description: Chave secundaria da dimensao de produtos.
+
+      - name: id_pedido_venda
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_produto
+        description: Chave da dimensao de produtos.
+
+      - name: id_pessoa
+        description: Chave da dimensao de clientes.
+
+      - name: id_cliente
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_vendedor
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_territorio_vendedor
+        description: Chave da dimensao de vendedor.
+
+      - name: id_territorio
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_pais
+        description: Chave da dimensao de endereco.
+
+      - name: id_codigo_nacional
+        description: Chave da dimensao de vendedor.
+
+      - name: id_endereco_entrega
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_forma_entrega
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_cartao_credito
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: id_taxa_cambio
+        description: Chave da tabela intermediaria de vendas por motivo e por cartao.
+
+      - name: data_pedido
+        description: Data de realizacao do pedido.
+
+      - name: prazo_entrega_pedido
+        description: Prazo para efetivacao da entrega do pedido.
+
+      - name: data_envio
+        description: Data de envio do pedido.
+
+      - name: dt_nascimento_funcionario
+        description: Data de nascimento do vendedor.
+
+      - name: data_contratacao_funcionario
+        description: Data de contratacao do vendedor.
+
+      - name: inicio_vendas_produto
+        description: Data e horario do inicio das vendas do produto.
+
+      - name: termino_vendas_produto
+        description: Data e horario do termino das vendas do produto.
+
+      - name: taxa_ponderada
+        description: Valor da taxa do pedido ponderada a cada produto que compoe o pedido.
+
+      - name: custo_padrao_produto
+        description: Valor do custo padrao do produto contido no pedido.
+
+      - name: preco_tabelado_produto
+        description: Preco tabelado do produto contido no pedido.
+
+      - name: subtotal_ponderado
+        description: Valor do subtotal do pedido ponderado a cada produto que compoe o pedido.
+
+      - name: total_ponderado
+        description: Valor do total do pedido ponderado a cada produto que compoe o pedido.
+
+      - name: quantidade_solicitada
+        description: Quantidade solicitada do produto no pedido.
+
+      - name: preco_unitario_produto
+        description: Valor unitario do produto no pedido.
+
+      - name: teve_desconto
+        description: Descricao de se o produto obteve desconto no pedido.
+
+      - name: desconto_produto
+        description: Valor do desconto atribuido ao produto no pedido.
+
+      - name: valor_negociado
+        description: Total bruto negociado por produto no pedido.
+
+      - name: valor_negociado_liquido
+        description: Total liquido negociado por produto no pedido.
+
+      - name: ticket_medio
+        description: Valor do ticket medio do produto no pedido.
+
+      - name: meta_vendas_vendedor
+        description: Meta a ser batida pelo vendedor.
+
+      - name: porcentagem_comissao_vendedor
+        description: Porcentagem de comissao recebida pelo vendedor.
+
+      - name: total_vendas_vendedor
+        description: Total de vendas acumuladas pelo vendedor ponderada por produto no pedido.
+
+      - name: total_vendas_ultimo_ano_vendedor
+        description: Total de vendas acumuladas no ultimo ano pelo vendedor ponderada por produto no pedido.
+
+      - name: bonus_para_vendedor
+        description: Valor do bonus do vendedor ponderadao por produto no pedido.
+
+      - name: nome_cliente
+        description: Nome do cliente.
+
+      - name: local_endereco
+        description: Descricao do endereco do cliente.
+
+      - name: nome_cidade
+        description: Descricao do nome da cidade do cliente.
+
+      - name: nome_pais
+        description: Descricao do nome do pais do cliente.
+
+      - name: codigo_pais
+        description: Codigo do pais representado por sigla.
+
+      - name: nome_produto
+        description: Nome do produto.
+
+      - name: codigo_produto
+        description: Código do produto.
+
+      - name: cor_produto
+        description: Cor do produto.
+
+      - name: estoque_minimo_produto
+        description: Quantidade minima para o nivel de estoque
+        
+      - name: ponto_reposicao_produto
+        description: Indicador nivel de reposicao de produto no estoque.
+
+      - name: tamanho_produto
+        description: Tamanho do produto.
+
+      - name: codigo_tamanho_produto
+        description: Codigo do tamanho do produto.
+
+      - name: unidade_medida_peso_produto
+        description: Unidade de medida do peso do produto.
+        
+      - name: peso_produto
+        description: Peso de cada produto.
+        
+      - name: dias_fabricacao_produto
+        description: Quantidade de dias destinados para a fabricacao do produto.
+        
+      - name: linha_produto
+        description: Linha do produto.
+        
+      - name: classe_produto
+        description: Classe do produto.
+        
+      - name: estilo_produto
+        description: Estilo do produto.
+
+      - name: nome_vendedor
+        description: Nome do vendedor.
+
+      - name: horas_descanso_funcionario
+        description: Quantidade de horas que o vendedor possui de folgas.
+
+      - name: cargo_funcionario
+        description: Descricao do cargo do vendedor na hierarquia da empresa. 
+
+      - name: genero_funcionario
+        description: Sigla que descreve gênero do vendedor.
+
+      - name: eh_assalariado
+        description: Descricao de se o vendedor eh assalariado ou não é.
+
+      - name: horas_licenca_medica_funcionario
+        description: Quantidade de horas que o vendedor tem registradas como licenca medica.
+
+      - name: funcionario_ativo
+        description: Descricao de se o funcionario esta ativo (em atividade) ou não na empresa.
+
+      - name: motivos_venda
+        description: Concatenação dos motivos de venda de um mesmo pedido em cada linha de produto. 
+
+      - name: codigo_pedido
+        description: Descricao do codigo do pedido de venda.
+
+      - name: numero_conta
+        description: Descricao do numero da conta do usuario.
+
+      - name: numero_revisao
+        description: Descricao do numero de revisao do pedido.
+
+      - name: status_pedido
+        description: Codigo de status do pedido.
+
+      - name: pedido_foi_online
+        description: Descricao de se o pedido foi realizado de forma online ou nao.
+
+      - name: codigo_aprovacao_cartao_credito
+        description: Codigo de aprovacao do cartao de credito na compra do pedido.
+
+      - name: tipo_cartao_credito
+        description: Tipo de cartao de credito utilizado na compra do pedido.

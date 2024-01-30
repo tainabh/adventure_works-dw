@@ -2,7 +2,7 @@ version: 2
 
 models: 
   - name: dim_endereco
-    description: Dimensao de endereco de pessoas da Adventure Works. Uma linha por endereco com informacoes de pais e regiao.
+    description: Dimensao de endereco de pessoas relaciconadas a Adventure Works. Uma linha por endereco com informacoes de pais e regiao.
     columns: 
       - name: id_endereco
         description: Chave primaria da dimensao de endereco.
