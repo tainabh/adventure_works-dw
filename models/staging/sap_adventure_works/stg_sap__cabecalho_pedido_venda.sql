@@ -14,9 +14,9 @@ with
             , cast (purchaseordernumber as string) as codigo_pedido
             , cast (accountnumber as string) as numero_conta
             , cast (revisionnumber as numeric) as numero_revisao
-            , cast (orderdate as string) as data_pedido
-            , cast (duedate as string) as prazo_entrega_pedido
-            , cast (shipdate as string) as data_envio
+            , cast ((date (orderdate)) as date) as data_pedido
+            , cast ((date (duedate)) as date) as prazo_entrega_pedido
+            , cast ((date (shipdate)) as date) as data_envio
             , cast (status as int) as status_pedido
             , cast (onlineorderflag as string) as pedido_foi_online      
             , cast (creditcardapprovalcode as string) as codigo_aprovacao_cartao_credito
