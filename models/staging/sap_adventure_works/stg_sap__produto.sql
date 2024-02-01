@@ -20,8 +20,8 @@ with
             , cast (productline as string) as linha_produto
             , cast (class as string) as classe_produto
             , cast (style as string) as estilo_produto           
-            , cast (sellstartdate as string) as inicio_vendas_produto
-            , cast (sellenddate as string) as termino_vendas_produto
+            , cast ((date (sellstartdate)) as date) as inicio_vendas_produto
+            , cast ((date (sellenddate)) as date) as termino_vendas_produto
             --, discontinueddate e-  nao aplicavel as regras d negocio            
             --, modifieddate - nao aplicavel as regras de negocio
             --, productsubcategoryid - nao aplicavel as regras de negocio

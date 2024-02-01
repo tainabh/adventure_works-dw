@@ -36,7 +36,7 @@ with
             , stg_pais.id_territorio                
             , stg_endereco.local_endereco
             , stg_endereco.nome_cidade  
-            , stg_regiao_pais.nome_pais          
+            , stg_pais.nome_pais          
             , stg_pais.codigo_pais
             , stg_regiao_pais.codigo_regiao_pais
                         

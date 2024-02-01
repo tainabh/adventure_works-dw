@@ -9,7 +9,7 @@ with
             , cast ( birthdate as date) as dt_nascimento_funcionario
             , cast ( maritalstatus as string) as estado_civil_funcionario
             , cast ( gender as string) as genero_funcionario
-            , cast ( hiredate as date) as data_contratacao_funcionario
+            , cast ( (date (hiredate)) as date) as data_contratacao_funcionario
             , cast ( salariedflag as string) as eh_assalariado
             , cast ( vacationhours as int) as horas_descanso_funcionario
             , cast ( sickleavehours as int) as horas_licenca_medica_funcionario
