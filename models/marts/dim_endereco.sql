@@ -4,10 +4,10 @@ with
         select 
             id_territorio || nome_pais as sk_territorio_pais -- chave surrogate criada para efetuar joins
             , nome_pais || codigo_regiao_pais as sk_pais_codigo -- chave surrogate criada para efetuar joins
-            , id_pais
+            , id_estado
             , id_territorio
             , nome_pais
-            , codigo_pais
+            , codigo_estado
             , codigo_regiao_pais
         from {{ ref('stg_sap__pais') }}
     )
@@ -15,7 +15,7 @@ with
     , stg_endereco as (
         select 
             id_endereco
-            , id_pais
+            , id_estado
             , nome_cidade
             , local_endereco
         from {{ ref('stg_sap__endereco') }}
@@ -32,17 +32,17 @@ with
     , joined_tabelas_endereco as ( 
         select
             stg_endereco.id_endereco 
-            , stg_endereco.id_pais     
+            , stg_endereco.id_estado     
             , stg_pais.id_territorio                
             , stg_endereco.local_endereco
             , stg_endereco.nome_cidade  
             , stg_pais.nome_pais          
-            , stg_pais.codigo_pais
+            , stg_pais.codigo_estado
             , stg_regiao_pais.codigo_regiao_pais
                         
         from stg_endereco
         left join stg_pais on
-        stg_endereco.id_pais = stg_pais.id_pais 
+        stg_endereco.id_estado = stg_pais.id_estado 
         left join stg_regiao_pais on
         stg_pais.sk_pais_codigo = stg_regiao_pais.sk_pais_codigo        
     )    

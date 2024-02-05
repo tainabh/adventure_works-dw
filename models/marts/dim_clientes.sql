@@ -27,7 +27,7 @@ with
 
         from stg_clientes
         left join stg_pessoa on
-        sk_cliente = sk_pessoa               
+        id_pessoa = id_empresa              
     )
 
     select *
