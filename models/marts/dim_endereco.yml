@@ -10,7 +10,7 @@ models:
           - not_null
           - unique
 
-      - name: id_pais
+      - name: id_estado
         description: Chave estrangeira da tabela de pais.
 
       - name: id_territorio
@@ -25,8 +25,8 @@ models:
       - name: nome_pais
         description: Descricao do nome do pais.
 
-      - name: codigo_pais
-        description: Codigo do pais representado por sigla.
+      - name: codigo_estado
+        description: Codigo do estado representado por sigla.
 
       - name: codigo_regiao_pais
         description: Codigo da regiao do pais representado por sigla.

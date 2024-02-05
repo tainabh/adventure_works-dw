@@ -42,7 +42,7 @@ with
             , int_vendas.id_vendedor            
             , vendedor.id_territorio_vendedor
             , int_vendas.id_territorio
-            , endereco.id_pais
+            , endereco.id_estado
             , vendedor.id_codigo_nacional
             , int_vendas.id_endereco_entrega
             , int_vendas.id_forma_entrega
@@ -79,7 +79,7 @@ with
             , endereco.local_endereco
             , endereco.nome_cidade
             , endereco.nome_pais
-            , endereco.codigo_pais
+            , endereco.codigo_estado
             , produtos.nome_produto
             , produtos.codigo_produto
             , produtos.cor_produto
@@ -143,7 +143,7 @@ with
         from joined_tabelas
         where rn = 1
     )
-    
+ 
     , select_final as (
         select
             -- CHAVES --
@@ -157,7 +157,7 @@ with
             , id_vendedor
             , id_territorio_vendedor
             , id_territorio
-            , id_pais
+            , id_estado
             , id_codigo_nacional
             , id_endereco_entrega
             , id_forma_entrega
@@ -206,7 +206,7 @@ with
             , local_endereco
             , nome_cidade
             , nome_pais
-            , codigo_pais
+            , codigo_estado
             , nome_produto
             , codigo_produto
             , cor_produto
