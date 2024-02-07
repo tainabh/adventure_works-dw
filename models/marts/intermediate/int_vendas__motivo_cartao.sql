@@ -187,5 +187,5 @@ with
 
 select *
 from select_final
-where rn = 1
+where rn = 1 
 
