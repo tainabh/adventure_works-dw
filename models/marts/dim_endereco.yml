@@ -23,7 +23,7 @@ models:
         description: Descricao do nome da cidade.
 
       - name: nome_estado
-        description: Descricao do nome do eestado.
+        description: Descricao do nome do estado.
 
       - name: nome_pais
         description: Descricao do nome do pais.
