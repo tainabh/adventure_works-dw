@@ -78,6 +78,7 @@ with
             , clientes.nome as nome_cliente          
             , endereco.local_endereco
             , endereco.nome_cidade
+            , endereco.nome_estado
             , endereco.nome_pais
             , endereco.codigo_estado
             , produtos.nome_produto
@@ -204,7 +205,8 @@ with
            -- CATEGORIAS --
             , nome_cliente
             , local_endereco
-            , nome_cidade
+            , nome_cidade            
+            , nome_estado
             , nome_pais
             , codigo_estado
             , nome_produto
@@ -238,8 +240,9 @@ with
             --, rn
             
         from transformacoes
-        
+    
     )
+    
 
 select *
 from select_final
